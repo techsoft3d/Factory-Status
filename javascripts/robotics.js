@@ -1,4 +1,4 @@
-import createViewer from '/javascripts/common/create_viewer.js';
+import createViewer from './common/create_viewer.js';
 
 export default function robotViewer(language) {
     this._language = language;
