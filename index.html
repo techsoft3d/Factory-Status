@@ -36,6 +36,8 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script type="text/javascript" src="javascripts/communicator_scripts/sample.js?v=latest"></script>
+  <script type="text/javascript" src="javascripts/caas.min.js"></script>
+
   <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
 
   <link rel="stylesheet" href="stylesheets/jquery-ui-1.9.2.custom.min.css" />
@@ -43,6 +45,8 @@
   <link rel="stylesheet" href="stylesheets/robotics.css" type="text/css" />
 
   <script type="module">
+    caasClient.init('https://caas.techsoft3d.com', { accessKey: "651ae3b3b4571588031b0cc3" });
+
     import robotViewer from "./javascripts/robotics.js";
 
     var viewer;
