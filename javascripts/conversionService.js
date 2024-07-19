@@ -11,6 +11,8 @@ var factory_uids = [
 export async function startViewer(model, container) {
         var viewer;
         let sessioninfo = await caasClient.getStreamingSession();
+        var result = await fetchVersionNumber();
+        
         await caasClient.enableStreamAccess(sessioninfo.sessionid, factory_uids);
         
         viewer = new Communicator.WebViewer({
@@ -18,7 +20,7 @@ export async function startViewer(model, container) {
                 endpointUri: sessioninfo.endpointUri,
                 model: model,
                 boundingPreviewMode: "none",
-                enginePath: "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer",
+                enginePath: `https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@20${result['hcVersion']}`,
                 rendererType: 0
         });
 
@@ -29,7 +31,6 @@ export async function startViewer(model, container) {
 
 async function fetchVersionNumber() {
         let data = await caasClient.getHCVersion();
-        versionNumer = data;        
         return data
       }
       
